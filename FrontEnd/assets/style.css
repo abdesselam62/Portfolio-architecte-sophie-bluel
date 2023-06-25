@@ -125,6 +125,32 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+/* Ajout des boutons filtres */
+.filter {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+.filter button {
+	min-width: 100px;
+	height: 37px;
+	padding: 9px;
+	margin-right: 10px;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
+	color: #1D6154;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	background: none;
+	cursor: pointer;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
