@@ -159,6 +159,10 @@ li:hover {
 	grid-row-gap: 20px;
 }
 
+.filter button:hover{
+	background-color: #1D6154;
+	color: white;
+}
 .gallery img {
 	width: 100%;
 

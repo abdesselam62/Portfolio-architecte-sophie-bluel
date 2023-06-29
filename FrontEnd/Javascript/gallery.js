@@ -41,13 +41,27 @@ const filterButtonAll = document.createElement("button");
 filterButtonAll.innerText = "Tous";
 filtersWorks.appendChild(filterButtonAll);
 
-// Création des boutons du tableau "categories"
-for(let i=0; i < categories.length; i++){
-    const filterButton = document.createElement("button");
-    filterButton.innerText = categories[i].name;
-    filtersWorks.appendChild(filterButton);      
- };
-        
+  // Création des boutons du tableau "categories"
+
+/*for(let i=0; i < categories.length ; i++){    
+    let btnFiltres = document.querySelector(".filter");
+    btnFiltres.innerHTML += '<button data-id ="' + categories[i].id + '">' + categories[i].name + '</button';
+};
+*/
+
+for(let i=0; i < categories.length ; i++){
+        let btnFiltres = document.createElement("button");
+        btnFiltres.innerText = categories[i].name;
+        filtersWorks.appendChild(btnFiltres);        
+    
+        btnFiltres.addEventListener("click", function() {            
+            const filteredWorks = works.filter(function(work){
+            return work.category.name === categories[i].name;
+            });
+            document.querySelector(".gallery").innerHTML = "";
+            generateWorks(filteredWorks);
+        });
+    };      
     
 
 
