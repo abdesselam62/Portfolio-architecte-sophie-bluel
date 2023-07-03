@@ -1,6 +1,8 @@
 // Import de la liste des travaux et catégories à partir de "data.js"
 import {works, categories} from "./data.js";
 
+import { editMode } from "./editMod.js";
+
         //Affichage des projets sur la page
 
 function generateWorks(works){
@@ -63,7 +65,8 @@ for(let i=0; i < categories.length ; i++){
         });
     };      
     
-
+// Affiche le mode édition si connecté
+editMode();
 
 
 
