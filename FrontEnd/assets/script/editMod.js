@@ -32,7 +32,7 @@
   // Fonction, activation du mode édition "editMod"
   function editModeActivation(state) {
   // Récupération de tout les class "edit-mode"
-  const editMod = document.querySelectorAll(".editMod");
+  const editMod = document.querySelectorAll(".edit-mode");
   // Parcours tout les class "editMod"
   for (let i = 0; i < editMod.length; i++) {
     //   Pour chaque "editMod"

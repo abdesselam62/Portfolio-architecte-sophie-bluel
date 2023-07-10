@@ -1,7 +1,11 @@
 // Import de la liste des travaux et catégories à partir de "data.js"
 import {works, categories} from "./data.js";
-
+// Import de la fonction "editMode" à partir de "editMode.js" permettant d'actualiser la page INDEX.HTML si authentifié.
 import { editMode } from "./editMod.js";
+// Import de la fonction "modale" à partir de "modale.js" permettant de gérer l'affichage de la MODALE dans index.html
+import { modale } from "./modale.js";
+// Export de la fonction "generateGallery" dans "modale.js" pour actualisation de l'affichage des "Galleries" après ajout ou suppression d'un projet.
+export { generateWorks };
 
         //Affichage des projets sur la page
 
@@ -45,12 +49,6 @@ filtersWorks.appendChild(filterButtonAll);
 
   // Création des boutons du tableau "categories"
 
-/*for(let i=0; i < categories.length ; i++){    
-    let btnFiltres = document.querySelector(".filter");
-    btnFiltres.innerHTML += '<button data-id ="' + categories[i].id + '">' + categories[i].name + '</button';
-};
-*/
-
 for(let i=0; i < categories.length ; i++){
         let btnFiltres = document.createElement("button");
         btnFiltres.innerText = categories[i].name;
@@ -67,6 +65,9 @@ for(let i=0; i < categories.length ; i++){
     
 // Affiche le mode édition si connecté
 editMode();
+
+// Appel de la fonction de gestion de la "Modale" dans "modale.js" qui permet de gérer les projets si authentifié.
+modale();
 
 
 
