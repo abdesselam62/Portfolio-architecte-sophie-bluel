@@ -10,14 +10,14 @@
 	<meta name="description" content="">
 	<script src="https://kit.fontawesome.com/f0189703f2.js"crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./assets/css/style.css">
-	<script type="module" src="./assets/script/gallery.js"></script>
+	<link rel="stylesheet" href="./assets/css/modal.css" />
 </head>
 <body>
 	<!-- "editMode" top banner -->
 	<div class="adminBanner edit-mode">
 		<i class="fa-regular fa-pen-to-square"></i>
 		<p>Mode édition</p>
-		<button class="btnPostChanges open-modal-button">publier les changements</button>
+		<button class="btnPostChanges">publier les changements</button>
 	</div>
 		<!-- Fin -->
 <!-- MODALE "editMode" utilisateur authentifié -->
@@ -58,7 +58,7 @@
 				<!-- Formulaire "Ajout de projet"-->
 				<form>
 					<div class="project-photo-file-add-container">
-						<i class="fa-regular fa-image project-photo-file-add-icone"></i>
+						<i class="fa-sharp fa-solid fa-image project-photo-file-add-icone"></i>
 						<label for="project-photo-file-add-input" class="project-photo-file-add-button">+ Ajouter
 							photo</label>
 						<!-- <button class="project-photo-file-add-button">+ Ajouter photo</button> -->						
@@ -82,14 +82,14 @@
 	<!-- FIN DE LA MODALE -------->
 
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
 			<li><a href="#portfolio">projets</a></li>
 			<li><a href="#contact">contact</a></li>
 			<li id="login"><a href="login.html">login</a></li>
           	<!-- "editMode" ancre "logout" -->
-			<li id="logout" class="edit-mode"><a href="index.html">logout</a></li>
+			<li id="logout" class="edit-mode"><a href="login.html">logout</a></li>
 			<li><a href="https://www.instagram.com/" target="_blank"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
 		</ul>
 	</nav>
@@ -153,5 +153,6 @@
 		</ul>
 	</nav>
 </footer>
+<script type="module" src="./assets/script/gallery.js"></script>
 </body>
 </html>

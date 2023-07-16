@@ -52,6 +52,8 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background: #FFFEF8;
+
 }
 header {
 	display: flex;
@@ -70,13 +72,20 @@ h1{
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
+	font-style: normal;
+	line-height: normal;
 	color: #B1663C
 }
 
 h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.5px;
+	color: #93532f;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-transform: uppercase;
 }
 
 h2{
@@ -85,30 +94,43 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
-nav ul {
+header nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
-nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
+header nav li {
+	padding: 0 20px;
 }
 
-nav li a {
+header nav li a {
 	text-decoration: none;
 	cursor: pointer;
-	color: black;
+	color: #000;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+  }
+
+header nav ul li a:hover {
+	color: #b1663c;
 }
 
-li:hover {
-	color: #B1663C;
+nav ul li a img {
+	width: 22px;
+	height: 22px;
+	flex-shrink: 0;
 }
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1
 }
@@ -172,10 +194,12 @@ li:hover {
 }
 .gallery img {
 	width: 100%;
+	height: 489.27px;
+  	object-fit: cover;
 
 }
 #contact {
-	width: 50%;
+	width: 379px;
 	margin: auto;
 }
 #contact > * {
@@ -187,22 +211,9 @@ li:hover {
 }
 #contact form {
 	text-align: left;
-	margin-top:30px;
+	margin-top:30px auto 0;
 	display: flex;
-	flex-direction: column;
-}
-
-
-.modal-content-form input,
-select {
-	width: 420px;
-	height: 51px;
-	flex-shrink: 0;
-	background: #FFF;
-	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
-	color: rgb(55, 55, 55);
-	border: transparent;
-	margin-top: 10px;
+	flex-direction: column;	
 }
 
 #contact input {
@@ -234,11 +245,6 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
-.modal-content-form label:not(.project-photo-file-add-button) {
-	align-self: flex-start;
-	margin-top: 20px;
-}
-
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
@@ -255,6 +261,7 @@ footer nav ul {
   .adminBanner {
 	width: 100%;
 	height: 59px;
+	flex-shrink: 0;
 	justify-content: center;
 	align-items: center;
 	gap: 1%;
@@ -277,17 +284,11 @@ footer nav ul {
 	background: #fff;
 	width: 216px;
 	height: 38px;
+	flex-shrink: 0;
 	cursor: pointer;
   }
-  button {
-	background-color: #FFFEF8;
-	border: none;
-	font-family: "Work sans";
-	font-size: 14px;
-	padding: 10px 0 10px 0;
-} 
 
-/* Fin */
+  /* Fin */
 /* Début editMod image introduction */
 .editModIntroductionImg {
 	width: 80%;
@@ -329,262 +330,4 @@ footer nav ul {
   }
   /* Fin */
   
-/* Style pour le contenu de la modale */
 
-/* Switch Modal "Suppresion de projet" ou "Form Ajout de projet" */
-.modal-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	position: absolute;
-	box-sizing: border-box;
-	width: 630px;
-	height: 731px;
-	border-radius: 10px;
-	overflow: auto;
-	background-color: #FFFFFF;
-	color: #000000;
-}
-
-.modal-content-form {
-	display: none;
-	flex-direction: column;
-	align-items: center;
-	position: absolute;
-	box-sizing: border-box;
-	margin: 0 auto;
-	font-family: 'Syne', sans-serif;
-	width: 630px;
-	height: 731px;
-	background: #FFFFFF;
-	border-radius: 10px;
-	overflow: auto;
-	color: #000000;
-
-}
-
-/* Définition de la MODALE */
-
-/* Style de base pour cacher la modale */
-.modal {
-	display: none;
-	align-items: center;
-	justify-content: center;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
-}
-
-
-/* ----------SWITCH----------- */
-
-/* Définition de la "Modale", "vu et suppression de projet" */
-
-.close-modal-button-container {
-	width: 100%;
-	text-align: end;
-}
-
-.modal-gallery-container {
-	width: 420px;
-	text-align: center;
-	height: auto;
-}
-
-.modal-content hr {
-	width: 420px;
-	border-top: 1px solid #B3B3B3;
-	margin-top: 40px;
-	margin-bottom: 40px;
-}
-	
-.modal-gallery-grid-container {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 10px;
-	grid-row-gap: 15px;
-	margin: 0 auto;
-}
-
-.modal-gallery-grid-container img {
-	width: 76px;
-	height: 103px;
-}
-
-.modal-gallery-grid-container figure {
-	text-align: left;
-	position: relative;
-}
-
-.edit-button-modale {
-	padding: 0;
-	font-size: 12px;
-}
-
-h3 {
-	font-family: 'work', sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: 26px;
-	line-height: 30px;
-	text-align: center;
-	color: #000000;
-	padding-top: 50px;
-	padding-bottom: 40px;
-  }
-
-
-form hr {
-	width: 100%;
-	height: 0;
-	border: 0.5px solid #969696;
-	margin-top: 40px;
-	margin-bottom: 40px;
-}
-
-.add-photo-button {
-	cursor: pointer;
-	font-family: 'Syne', sans-serif;
-	font-size: 16px;
-	font-weight: 700;
-	line-height: 19px;
-	letter-spacing: 0em;
-	color: white;
-	background-color: #1D6154;
-	text-align: center;
-	border: 1px solid #1D6154;
-	border-radius: 60px;
-	padding: 8px 35px;
-}
-
-.delete-gallery-button {
-	cursor: pointer;
-	display: block;
-	margin: 25px;
-	font-family: 'Syne', sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 16.8px;
-	text-align: center;
-	color: #D65353;
-
-}
-
-/* Définition de la "Modale", "ajout de projet" */
-
-.modal-form-container {
-	width: 72%;
-	height: auto;
-	text-align: center;
-}
-
-.modal-form-container form {
-	width: 420px;
-	display: flex;
-	flex-direction: column;
-	color: #3D3D3D;
-	font-size: 14px;
-	font-family: 'Syne', sans-serif;
-	font-weight: 500;
-	align-items: center;
-	justify-content: space-around;
-	margin: auto;
-}
-
-.return-and-close-modal-button-container {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-
-}
-
-.close-modal-button i{
-	position: absolute;
-	right: 25px;
-	top: 25px;	
-	cursor: pointer;
-}
-
-.return-modal-button i{
-	position: absolute;
-	left: 25px;
-	top: 25px;
-	cursor: pointer;
-	
-}
-/* Définition du FORM de la MODALE */
-
-.project-photo-file-add-container {
-	background: rgba(232, 241, 246, 1);
-	width: 420px;
-	height: 169px;
-	flex-shrink: 0;
-	border-radius: 3px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	padding: 10px 0;
-	margin: auto;
-}
-
-.project-photo-file-add-container img {
-	height: 100%;
-}
-
-.project-photo-file-add-icone {
-	font-size: 58px;
-	color: #B9C5CC;
-}
-
-.project-photo-file-add-button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #CBD6DC;
-	color: #306685;
-	border-radius: 18px;
-	font-size: 14px;
-	font-weight: 500;
-	height: 36px;
-	width: 173px;
-	margin: 0;
-}
-
-#project-photo-file-add-input {
-	display: none;
-}
-
-.project-photo-file-add-description {
-	font-size: 10px;
-}
-
-form label {
-	text-align: left;
-}
-
-.valid-form {
-	width: 237px;
-	height: 36px;
-	flex-shrink: 0;
-	border-radius: 60px;
-	background: #A7A7A7;
-	border: transparent;
-	color: #FFF;
-	text-align: center;
-	font-size: 14px;
-	font-family: 'Syne', sans-serif;
-	font-weight: 700;
-	cursor: pointer;
-}
-
-.valid-form:hover {
-	background-color: #1D6154;
-	color: #FFFEF8;
-}

@@ -1,0 +1,300 @@
+/* Modale */
+.modal {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+h3 {
+	font-family: 'work sans';
+	font-weight: 400;
+	font-size: 26px;	
+}
+
+  /* Switch Modal "Suppresion de projet" ou "Form Ajout de projet" */
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	box-sizing: border-box;
+	width: 630px;
+	height: 731px;
+	border-radius: 10px;
+	overflow: auto;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+/* Définition de la "Modale", "vu et suppression de projet" */
+
+.close-modal-button-container {
+	width: 100%;
+	text-align: end;
+}
+
+/* "button" pour fermer la modale */
+.close-modal-button-container .close-modal-button {
+    border: none;
+    background: none;
+    margin: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+}
+  
+/* --------La Gallery----------- */
+
+.modal-gallery-container {
+	text-align: center;
+	height: auto;
+}
+
+.modal-gallery-grid-container {
+    width: 420px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 7px;
+    grid-row-gap: 7px;
+    margin: 35px;
+}
+
+.modal-gallery-grid-container img {
+	width: 76.86px;
+	height: 102.57px;
+    object-fit: cover;
+}
+
+.modal-gallery-grid-container figure {
+	text-align: left;
+	position: relative;
+}
+
+.edit-button-modale {
+	padding: 0;
+    border: none;
+    background: none;
+    color: #000;
+    font-family: Work Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* trait horizontal */
+.modal-content hr {
+    border-top: 1px solid #b3b3b3;
+    width: 420px;
+    margin-top: 40px;
+}
+
+/* btn : "Ajouter une photo" */
+.add-photo-button {
+	border: none;
+    color: #fff;
+    text-align: center;
+    font-family: Syne;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 237px;
+    height: 36px;
+    border-radius: 60px;
+    background: #1d6154;
+    padding: 5px 18px 5px 18px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+/* btn : "Supprimer la galerie" */
+.delete-gallery-button {
+	color: #d65353;
+    background: none;
+    text-align: center;
+    font-family: Syne;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/*  "Modale" secondaire, "ajout de projet" */
+
+.modal-content-form {
+	display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    box-sizing: border-box;
+    overflow: auto;
+    border-radius: 10px;
+    background: #fff;
+    color: #000000;
+    width: 630px;
+    height: 670px;
+}
+
+.modal-form-container {
+    width: 67%;
+    height: auto;
+    text-align: center;
+}
+
+/* Formulaire */
+.modal-content-form form {
+	width: 420px;
+	display: flex;
+	flex-direction: column;
+	color: #3D3D3D;
+	font-size: 14px;
+	font-family: 'Syne', sans-serif;
+	font-weight: 500;
+	align-items: center;
+	justify-content: space-around;
+	margin: auto;
+}
+
+form hr {
+	border-top: 1px solid #b3b3b3;
+    width: 420px;
+    margin-top: 40px;
+}
+
+/* btn "retour" et "fermer" */
+.return-and-close-modal-button-container {
+   display: flex;
+   width: 100%;
+   justify-content:space-between;
+}
+
+.return-and-close-modal-button-container .close-modal-button {
+    border: none;
+    background: none;
+    padding-top: 20px; 
+    padding-right: 20px;   
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+.return-and-close-modal-button-container .return-modal-button {	
+    border: none;
+    background: none;
+    color: black;
+    font-size: 24px;
+    padding-top: 20px; 
+    padding-left: 20px;
+    cursor: pointer;   
+}
+
+/*Contient toute la partie "+ Ajouter photo" */
+.project-photo-file-add-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 420px;
+    height: 169px;
+    border-radius: 3px;
+    background: #e8f1f6;
+    text-align: center;
+    margin-top: 36px;
+}
+
+/* "preview" de l'image */
+.project-photo-file-add-container img {
+	height: 169px;
+    width: 129px;
+    object-fit: cover;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+/* Icone "paysage" */
+.project-photo-file-add-icone {
+    font-size: 58px;
+    color: #B9C5CC;
+}
+
+.project-photo-file-add-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #CBD6DC;
+	color: #306685;
+	border-radius: 18px;
+    font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 500;
+	height: 36px;
+	width: 173px;
+	margin: 0;
+}
+
+#project-photo-file-add-input {
+	display: none;
+}
+
+.project-photo-file-add-description {
+	color: #444;
+    text-align: center;
+    font-family: Work Sans;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+} 
+
+ form label {
+	width: 100%;
+    text-align: left;
+} 
+
+.modal-content-form input, select {
+    width: 100%;
+    height: 51px;
+    font-family: Work Sans;
+    font-size: 14px;
+    line-height: 16.42px;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+  .modal-content-form label:not(.project-photo-file-add-button) {
+    margin: 30px 0 10px 0;
+}
+
+.valid-form {
+	margin: auto;
+    border-radius: 60px;
+    background: #a7a7a7;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-family: Syne;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 237px;
+    height: 36px;
+    margin-top:30px ;
+}
+
+.valid-form:hover {
+	background-color: #1D6154;
+	color: #FFFEF8;
+}
