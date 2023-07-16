@@ -257,8 +257,8 @@ footer nav ul {
 	display: none;
   }
   
-  /* Début top banner */
-  .adminBanner {
+/* Début top banner */
+.adminBanner {
 	width: 100%;
 	height: 59px;
 	flex-shrink: 0;
@@ -267,14 +267,14 @@ footer nav ul {
 	gap: 1%;
 	background-color: #000000;
 	color: #ffffff;
-  }
+}
   
-  .adminBanner i {
+.adminBanner i {
 	margin-right: -7px;
 	font-size: 16px;
-  }
+}
   
-  .adminBanner .btnPostChanges {
+.adminBanner .btnPostChanges {
 	color: #000;
 	text-align: center;
 	font-size: 14px;
@@ -286,25 +286,25 @@ footer nav ul {
 	height: 38px;
 	flex-shrink: 0;
 	cursor: pointer;
-  }
+}
 
   /* Fin */
 /* Début editMod image introduction */
 .editModIntroductionImg {
 	width: 80%;
 	margin: 10px auto;
-  }
-  .editModIntroductionImg i {
+}
+.editModIntroductionImg i {
 	margin-right: 8px;
-  }
+}
   /* Fin */
   /* Début editMod texte introduction */
-  .editModIntroductionText {
+.editModIntroductionText {
 	margin: 10px auto;
-  }
+}
   .editModIntroductionText i {
 	margin-right: 8px;
-  }
+}
   
   /* Fin */
 /* "editMode" Projects */
@@ -312,9 +312,9 @@ footer nav ul {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 50px;
-  }
+}
   
-  .portfolioTitleAndEditBtn button {
+.portfolioTitleAndEditBtn button {
 	background: none;
 	border: none;
 	font-family: "Work sans";
@@ -323,11 +323,11 @@ footer nav ul {
 	padding-top: 10px;
 	color: black;
 	cursor: pointer;
-  }
+}
   
-  .portfolioTitleAndEditBtn button i {
+.portfolioTitleAndEditBtn button i {
 	margin-right: 8px;
-  }
+}
   /* Fin */
   
 

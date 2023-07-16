@@ -66,6 +66,7 @@ h3 {
     margin: 35px;
 }
 
+/* Taille des images */
 .modal-gallery-grid-container img {
 	width: 76.86px;
 	height: 102.57px;
@@ -77,6 +78,52 @@ h3 {
 	position: relative;
 }
 
+/* Icone déplacement */
+.modal-gallery-grid-container figure:hover .btn-Icon-Move {
+    display: block;
+}
+
+.btn-Icon-Move {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 27px;
+    z-index: 1;
+    background-color: #000000;
+    border: none;
+    color: #ffffff;
+    border-radius: 2px;
+    height: 20px;
+    width: 18px;
+    padding: 0;
+    border-radius: 4px;
+}
+  
+/* Icone supprimer */
+.btn-Icon-Trash {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    z-index: 1;
+    background-color: #000000;
+    border: none;
+    color: #ffffff;
+    border-radius: 2px;
+    height: 20px;
+    width: 18px;
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Icone supprimer & déplacement */
+    .btn-Icon-Trash i,
+    .btn-Icon-Move i {
+    font-size: 10px;
+    margin: 0;
+}
+
+/* "button" : "éditer" */
 .edit-button-modale {
 	padding: 0;
     border: none;
@@ -131,7 +178,6 @@ h3 {
 }
 
 /*  "Modale" secondaire, "ajout de projet" */
-
 .modal-content-form {
 	display: none;
     flex-direction: column;
