@@ -8,9 +8,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
-	<script src="https://kit.fontawesome.com/f0189703f2.js"crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/f0189703f2.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./assets/css/style.css">
-	<link rel="stylesheet" href="./assets/css/modal.css" />
+	<link rel="stylesheet" href="./assets/css/modal.css"> 
 </head>
 <body>
 	<!-- "editMode" top banner -->
@@ -42,8 +42,7 @@
 			<br>
 			<button class="delete-gallery-button">Supprimer la galerie</button>
 		</div>
-		<!-- ----------------- -->
-
+		
 		<!-- Contenu de la modale "Ajout de projet" (Formulaire d'envoi des informations)-->
 		<div class="modal-content-form">
 			<div class="return-and-close-modal-button-container">
@@ -61,25 +60,27 @@
 						<i class="fa-sharp fa-solid fa-image project-photo-file-add-icone"></i>
 						<label for="project-photo-file-add-input" class="project-photo-file-add-button">+ Ajouter
 							photo</label>
-						<!-- <button class="project-photo-file-add-button">+ Ajouter photo</button> -->						
+						<!-- <button class="project-photo-file-add-button">+ Ajouter photo</button> -->	
+						<input type="file" name="project-photo-file-add-input" id="project-photo-file-add-input"
+							required accept=".jpg, .png">					
 						<p class="project-photo-file-add-description">jpg, png : 4mo max</p>
 					</div>
 					<label for="project-title">Titre</label>
 					<input type="text" name="project-title" id="project-title" required>
 					<label for="project-category">Catégorie</label>
 					<select name="project-category" id="project-category" required>
-						<option value=""></option>
-						<!-- Insertion des "Categories" via "MODALE.JS" -->
+						<option value="">Sélectionner</option>
+						<!-- Insertion des "Categories" via "modal.js" -->
 					</select>
 					<hr>
 					<button class="valid-form">Valider</button>
 				</form>
 			</div>
 		</div>
-		<!-- ----------------- -->
+		
 	</div>
 
-	<!-- FIN DE LA MODALE -------->
+	<!-- FIN DE LA MODALE ---->
 
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -97,7 +98,7 @@
 <main>
 	<section id="introduction">
 		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="" />
+			<img src="./assets/images/sophie-bluel.png" alt="">
 			<!-- "editMode" image introduction -->
 			<div class="editModIntroductionImg edit-mode">
 			  <i class="fa-regular fa-pen-to-square"></i>

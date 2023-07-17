@@ -287,6 +287,7 @@ form hr {
 	height: 36px;
 	width: 173px;
 	margin: 0;
+    cursor: pointer;
 }
 
 #project-photo-file-add-input {
@@ -338,6 +339,7 @@ form hr {
     width: 237px;
     height: 36px;
     margin-top:30px ;
+    cursor: pointer;
 }
 
 .valid-form:hover {

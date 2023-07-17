@@ -146,3 +146,31 @@ addPhotoButton.addEventListener("click", function () {
     const modalFormSwitch = document.querySelector(".modal-content-form");
     modalFormSwitch.style.display = "flex";
 });
+
+// Gestion du "preview" de l'image choisie à "ajout photo" de la "madalForm"
+const projectPhotoFileAddInputFormModale = document.querySelector("#project-photo-file-add-input");
+
+projectPhotoFileAddInputFormModale.addEventListener("change", function () {
+    // Si la taille du fichier est <= à 4 Mo
+    if (projectPhotoFileAddInputFormModale.files[0].size <= 4 * 1024 * 1024) {
+        // Réinitialisation de la zone "project-photo-file-add-container" du DOM
+        const projectPhotoFileAddContainer = document.querySelector(".project-photo-file-add-container");
+        // Vide le "projectPhotoFileAddContainer" pour afficher l'image sélectionnée (preview)
+        projectPhotoFileAddContainer.innerHTML = "";
+        // Création d'une balise "img"
+        const projectPhotoFilePreviewFormModale = document.createElement("img");
+        // Création d'un objet URL à partir de la "src" sélectionnée
+        projectPhotoFilePreviewFormModale.src = URL.createObjectURL(projectPhotoFileAddInputFormModale.files[0]);
+        projectPhotoFilePreviewFormModale.className = "project-photo-file-preview-form-modale";
+        // Rattachement de la balise "img".
+        projectPhotoFileAddContainer.appendChild(projectPhotoFilePreviewFormModale);
+
+        // Choix d'une nouvelle image au clique sur le "preview"
+        projectPhotoFilePreviewFormModale.addEventListener("click", function () {
+        projectPhotoFileAddInputFormModale.click();
+        });
+        } else {
+        projectPhotoFileAddInputFormModale.value = "";
+        return alert("La taille de l'image doit être supérieure à 4mo.")
+        };
+        });
