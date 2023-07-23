@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -211,7 +210,6 @@ nav ul li a img {
 }
 #contact form {
 	text-align: left;
-	margin-top:30px auto 0;
 	display: flex;
 	flex-direction: column;	
 }
@@ -258,7 +256,7 @@ footer nav ul {
   }
   
 /* Début top banner */
-.adminBanner {
+.admin-banner {
 	width: 100%;
 	height: 59px;
 	flex-shrink: 0;
@@ -269,12 +267,12 @@ footer nav ul {
 	color: #ffffff;
 }
   
-.adminBanner i {
+.admin-banner i {
 	margin-right: -7px;
 	font-size: 16px;
 }
   
-.adminBanner .btnPostChanges {
+.admin-banner .btn-post-changes {
 	color: #000;
 	text-align: center;
 	font-size: 14px;
@@ -290,31 +288,31 @@ footer nav ul {
 
   /* Fin */
 /* Début editMod image introduction */
-.editModIntroductionImg {
+.introduction-img {
 	width: 80%;
 	margin: 10px auto;
 }
-.editModIntroductionImg i {
+.introduction-img i {
 	margin-right: 8px;
 }
   /* Fin */
   /* Début editMod texte introduction */
-.editModIntroductionText {
+.introduction-text {
 	margin: 10px auto;
 }
-  .editModIntroductionText i {
+  .introduction-text i {
 	margin-right: 8px;
 }
   
   /* Fin */
 /* "editMode" Projects */
-.portfolioTitleAndEditBtn {
+.title-and-edit-btn {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 50px;
 }
   
-.portfolioTitleAndEditBtn button {
+.title-and-edit-btn button {
 	background: none;
 	border: none;
 	font-family: "Work sans";
@@ -325,7 +323,7 @@ footer nav ul {
 	cursor: pointer;
 }
   
-.portfolioTitleAndEditBtn button i {
+.title-and-edit-btn button i {
 	margin-right: 8px;
 }
   /* Fin */

@@ -1,5 +1,5 @@
 // Fonction, "Mode édition"
-  export function editMode() {
+export function editMode() {
   // Récupération de l'état de connexion
   const authState = sessionStorage.getItem("authState");    
 

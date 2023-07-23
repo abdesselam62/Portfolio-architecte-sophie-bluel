@@ -62,12 +62,45 @@ for(let i=0; i < categories.length ; i++){
             generateWorks(filteredWorks);
         });
     };      
+
+  // ---------------Changement de couleurs au click sur les filtres---------------
+
+// Sélection de tous les boutons
+const buttons = document.querySelectorAll(".filter button");
+
+// Parcours tout les "buttons"
+for (let i = 0; i < buttons.length; i++) {
+  // Ajout d'une class "filter-selected" pour chaque "buttons"
+  buttons[i].classList.add("filter-selected");
+}
+
+// Fonction pour réinitialiser le style de tous les boutons
+function resetButtonColors() {
+  // "button" parcours chaque élements de "buttons"
+  for (let button of buttons) {
+    // Les boutons non concernés par le click prendront ce style :
+    button.style.backgroundColor = "white";
+    button.style.color = "#1D6154";
+  }
+}
+
+// "button" parcours chaque élements de "buttons"
+for (let button of buttons) {
+  // Chaque "button" au click
+  button.addEventListener("click", function () {
+    // Appel de la fonction "resetButtonColors()" qui va réinitialiser le style
+    resetButtonColors();
+    // Changement de style au bouton cliqué :
+    button.style.backgroundColor = "#1D6154";
+    button.style.color = "white";
+  });
+}
+
     
 // Affiche le mode édition si connecté
 editMode();
 
 // Appel de la fonction de gestion de la "Modale" dans "modale.js" qui permet de gérer les projets si authentifié.
 modale();
-
 
 

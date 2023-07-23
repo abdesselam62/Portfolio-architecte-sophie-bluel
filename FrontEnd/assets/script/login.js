@@ -19,7 +19,7 @@ formInfos.addEventListener("submit", async function (event) {
      soit résolue avant de continuer
   */
   
-  // "auth" signiifie "authentification"
+  // "auth" signifie "authentification"
   const authInfos = await fetch(
     "http://localhost:5678/api/users/login",
     {
@@ -27,7 +27,7 @@ formInfos.addEventListener("submit", async function (event) {
       method: "POST",
       // headers : indiquent que les données sont en JSON
       headers: { "Content-Type": "application/json" },
-      // La requête est créer en convertissant "userInfos" en JSON
+      // La requête est crée en convertissant "userInfos" en JSON
       body: JSON.stringify(userInfos),
     }
   );

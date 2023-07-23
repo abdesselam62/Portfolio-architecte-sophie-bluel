@@ -4,23 +4,29 @@ import { works, categories } from "./data.js";
 import { generateWorks } from "./gallery.js"
 
 // Fonction qui affiche ou masque le "mode édition" en fonction du "click"
+let modal = null;
 export function modale() {
 
-    const openModalButton = document.querySelectorAll(".open-modal-button");
-    const closeModalButton = document.querySelectorAll(".close-modal-button");
+    const openModalBtn = document.querySelectorAll(".open-modal-btn");
+    const closeModalBtn = document.querySelectorAll(".close-modal-btn");
     const modal = document.querySelector(".modal");
 
     // Bouton ouvrir la modale
-    for (let i = 0; i < openModalButton.length; i++) {
-        openModalButton[i].addEventListener("click", function () {
-            modal.style.display = "flex";
+    for (let i = 0; i < openModalBtn.length; i++) {
+        openModalBtn[i].addEventListener("click", function () {
+            modal.style.display = null;
+            modal.removeAttribute('aria-hidden');
+            modal.setAttribute('aria-modal', 'true');
         });
     };
 
     // Bouton fermer la modale
-    for (let i = 0; i < closeModalButton.length; i++) {
-        closeModalButton[i].addEventListener("click", function () {
+    if (modal === null) return;
+    for (let i = 0; i < closeModalBtn.length; i++) {
+        closeModalBtn[i].addEventListener("click", function () {
             modal.style.display = "none";
+            modal.setAttribute('aria-hidden', 'true')
+            modal.removeAttribute('aria-modal')
         });
     };
 
@@ -28,40 +34,42 @@ export function modale() {
     modal.addEventListener("click", function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
+            modal.setAttribute('aria-hidden', 'true')
+            modal.removeAttribute('aria-modal')
         };
     });
 };
 
-// Récupération de la class "return-modal-button"
-const returnModalButton = document.querySelector(".return-modal-button");
+// Récupération de la class "returnModalBtn"
+const returnModalBtn = document.querySelector(".return-modal-btn");
 
-// Au click sur "return-modal-button", retour sur "modalContent" (1ére fenêtre modale) 
-returnModalButton.addEventListener("click", function () {
-    const modalGallerySwitch = document.querySelector(".modal-content");
-    modalGallerySwitch.style.display = "flex";
+// Au click sur "returnModalBtn", retour sur "modalContent" (1ére fenêtre modale) 
+returnModalBtn.addEventListener("click", function () {
+    const modalContent = document.querySelector(".modal-content");
+    modalContent.style.display = "flex";
     // et fermeture de la seconde fenêtre modale
-    const modalFormSwitch = document.querySelector(".modal-content-form");
-    modalFormSwitch.style.display = "none";
+    const modalForm = document.querySelector(".modal-content-form");
+    modalForm.style.display = "none";
 });
 
 // Fonction pour générer la "gallery" de la modale
-function generateGalleryModale(works) {
+function generateWorksModale(works) {
     // Parcours des données "works" pour les ajouter au HTML de la Modale.
     for (let i = 0; i < works.length; i++) {
         // "work" contient tout les travaux de api/work
         const work = works[i];
-        // Récupération de la class "modal-gallery-grid-container" du DOM
-        const sectionGalleryModale = document.querySelector(".modal-gallery-grid-container");
+        // Récupération de la class "modal-gallery" du DOM
+        const modalGallery = document.querySelector(".modal-gallery");
         // Création d'une balise "figure" dédiée à une fiche de travaux.
-        const galleryElementModale = document.createElement("figure");
+        const modalGalleryFigure = document.createElement("figure");
         //  Récupération de chaque "id" des fiches de travaux.
-        galleryElementModale.dataset.id = work.id;
+        modalGalleryFigure.dataset.id = work.id;
         // Création d'une balise "img" pour chaque fiche de travaux.
-        const imageElementModale = document.createElement("img");
+        const modalGalleryImage = document.createElement("img");
         // Récupération dès URL de chaque image  
-        imageElementModale.src = work.imageUrl;
+        modalGalleryImage.src = work.imageUrl;
         // Récupération dès titres de chaque image     
-        imageElementModale.alt = work.title;
+        modalGalleryImage.alt = work.title;
 
         // Création d'un "button" pour chaque projet qui contiendra une icone "déplacement"
         const btnIconMove = document.createElement("button");
@@ -82,17 +90,17 @@ function generateGalleryModale(works) {
         });
         
         // Création d'un "button" pour chaque projet qui contiendra un texte : "éditer"
-        const buttonGalleryElementModale = document.createElement("button");
-        buttonGalleryElementModale.className = "edit-button-modale";
-        buttonGalleryElementModale.innerText = "éditer";
+        const editModalBtn = document.createElement("button");
+        editModalBtn.className = "edit-btn-modale";
+        editModalBtn.innerText = "éditer";
 
-        // Rattachement de la balise "figure" à la section "sectionGalleryModale".
-        sectionGalleryModale.appendChild(galleryElementModale);
+        // Rattachement de la balise "figure" à la balise "modalGallery".
+        modalGallery.appendChild(modalGalleryFigure);
         // Rattachement de chaque élement à la balise "figure"
-        galleryElementModale.appendChild(imageElementModale);        
-        galleryElementModale.appendChild(buttonGalleryElementModale);
-        galleryElementModale.appendChild(btnIconTrash);
-        galleryElementModale.appendChild(btnIconMove);
+        modalGalleryFigure.appendChild(modalGalleryImage);        
+        modalGalleryFigure.appendChild(editModalBtn);
+        modalGalleryFigure.appendChild(btnIconTrash);
+        modalGalleryFigure.appendChild(btnIconMove);
         // Rattachement des icones à son parent
         btnIconMove.appendChild(iconMove);        
         btnIconTrash.appendChild(iconTrash);
@@ -100,7 +108,7 @@ function generateGalleryModale(works) {
 };
 
 // Appel de la fonction
-generateGalleryModale(works);
+generateWorksModale(works);
 
 // Récupération du Token d'authentification
 const authToken = sessionStorage.getItem("authToken");
@@ -136,41 +144,134 @@ async function deleteWork(workId) {
     };
 };
 
-// Récupération de la class "add-photo-button" de "modal-content"
-const addPhotoButton = document.querySelector(".add-photo-button");
+// Récupération de la class "addPhotoBtn" de "modalContent"
+const addPhotoBtn = document.querySelector(".add-photo-btn");
 
 // Masque la "modal-content" et Affiche "modal-content-form" au clique
-addPhotoButton.addEventListener("click", function () {
-    const modalGallerySwitch = document.querySelector(".modal-content");
-    modalGallerySwitch.style.display = "none";
-    const modalFormSwitch = document.querySelector(".modal-content-form");
-    modalFormSwitch.style.display = "flex";
+addPhotoBtn.addEventListener("click", function () {
+    const modalContent = document.querySelector(".modal-content");
+    modalContent.style.display = "none";
+    const modalForm = document.querySelector(".modal-content-form");
+    modalForm.style.display = "flex";
 });
 
-// Gestion du "preview" de l'image choisie à "ajout photo" de la "madalForm"
-const projectPhotoFileAddInputFormModale = document.querySelector("#project-photo-file-add-input");
+// Gestion du "preview" de l'image choisie à "ajout photo" de la "modalForm"
+const photoAddInput = document.querySelector("#photo-add-input");
 
-projectPhotoFileAddInputFormModale.addEventListener("change", function () {
+photoAddInput.addEventListener("change", function () {
     // Si la taille du fichier est <= à 4 Mo
-    if (projectPhotoFileAddInputFormModale.files[0].size <= 4 * 1024 * 1024) {
+    if (photoAddInput.files[0].size <= 4 * 1024 * 1024) {
         // Réinitialisation de la zone "project-photo-file-add-container" du DOM
-        const projectPhotoFileAddContainer = document.querySelector(".project-photo-file-add-container");
-        // Vide le "projectPhotoFileAddContainer" pour afficher l'image sélectionnée (preview)
-        projectPhotoFileAddContainer.innerHTML = "";
+        const photoAddContainer = document.querySelector(".photo-add-container");
+        // Vide le "photoAddContainer" pour afficher l'image sélectionnée (preview)
+        photoAddContainer.innerHTML = "";
         // Création d'une balise "img"
-        const projectPhotoFilePreviewFormModale = document.createElement("img");
+        const modalPreviewImg = document.createElement("img");
         // Création d'un objet URL à partir de la "src" sélectionnée
-        projectPhotoFilePreviewFormModale.src = URL.createObjectURL(projectPhotoFileAddInputFormModale.files[0]);
-        projectPhotoFilePreviewFormModale.className = "project-photo-file-preview-form-modale";
+        modalPreviewImg.src = URL.createObjectURL(photoAddInput.files[0]);
         // Rattachement de la balise "img".
-        projectPhotoFileAddContainer.appendChild(projectPhotoFilePreviewFormModale);
+        photoAddContainer.appendChild(modalPreviewImg);
 
         // Choix d'une nouvelle image au clique sur le "preview"
-        projectPhotoFilePreviewFormModale.addEventListener("click", function () {
-        projectPhotoFileAddInputFormModale.click();
+        modalPreviewImg.addEventListener("click", function () {
+            photoAddInput.click();
         });
         } else {
-        projectPhotoFileAddInputFormModale.value = "";
+            photoAddInput.value = "";
         return alert("La taille de l'image doit être supérieure à 4mo.")
         };
         });
+
+        // Copie du tableau de "categories" en enlevant l'index 0 (catégorie "Tous")
+        const categoriesModale = categories.slice(0);
+
+        // Parcours toutes les données de "categories"
+        for (let i = 0; i < categoriesModale.length; i++) {
+            const categoryModale = categoriesModale[i];
+            // Récupération de la class "work-category"
+            const workCategory = document.querySelector("#work-category");
+            // Création des balises "option"
+            const listScrollCategory = document.createElement("option");
+            // Récupération des "id"
+            listScrollCategory.value = categoryModale.id;
+            // Affichage de chaque nom de "categories"
+            listScrollCategory.innerText = categoryModale.name;
+            // "listScrollCategory" enfant de "work-category"
+            workCategory.appendChild(listScrollCategory);
+        }
+        // Récupération des deux "input" et du button "Valider"
+        const workTitle = document.querySelector("#work-title");
+        const workCategory = document.querySelector("#work-category");
+        const validForm = document.querySelector(".valid-form");   
+        
+        // Si les 3 inputs ont une valeurs alors affiche le btn "validForm" en vert
+        function checkInputs() {
+            if (photoAddInput.value && workTitle.value && workCategory.value) {
+            validForm.classList.add("valid");
+            } else {
+            validForm.classList.remove("valid");
+            }
+        }
+
+        photoAddInput.addEventListener("input", checkInputs);
+        workTitle.addEventListener("input", checkInputs);
+        workCategory.addEventListener("input", checkInputs);
+
+        // Au clique sur le bouton "Valider" du "modalForm"
+        validForm.addEventListener("click", function (event) {
+        event.preventDefault();
+        // Si les 3 champs sont remplis
+        if (
+        photoAddInput.checkValidity() &&
+        workTitle.checkValidity() &&
+        workCategory.checkValidity() === true
+        ) {
+        // Appel de la fonction pour ajouter un projet
+        addWork();
+        } else {
+        // Récupération de la class "errorAddWork"
+        const errorAddWork = document.querySelector(".errorAddWork");
+        errorAddWork.innerText = "Tout les champs sont requis"; // Message d'erreur
+        errorAddWork.style.color = "red";
+        }
+    });
+        // Fonction ajouter un projet
+        async function addWork() {
+        // Création d'un nouvel objet "FormData" pour stocker les données du formulaire
+        const formData = new FormData();
+    
+        // Ajoute le fichier sélectionné "photoAddInput" au "formData"
+        formData.append("image", photoAddInput.files[0]);
+        // Ajoute la valeur saisie "workTitle" au "formData"
+        formData.append("title", workTitle.value);
+        // Ajoute la valeur "workCategory" choisie au "formData"
+        formData.append("category", workCategory.value);
+    
+        const addResponse = await fetch("http://localhost:5678/api/works/", {
+        method: "POST",
+        headers: {
+            Authorization: "Bearer " + authToken,
+            accept: "application/json",
+        },
+        body: formData,
+        });
+    
+        // Si réponse "ok" alors on ajoute le projet au DOM
+        if (addResponse.ok) {
+        // Ajoute mon new projet à la fin du tableau "works"
+        works.push(await addResponse.json());
+        returnModalBtn.click();
+        // Réinitialisation du DOM
+        const modalGallery = document.querySelector(".modal-gallery");
+        const sectionGallery = document.querySelector(".gallery");
+        modalGallery.innerHTML = "";
+        sectionGallery.innerHTML = "";
+        // Les galleries se mettent à jour avec les new valeurs
+        generateWorksModale(works);
+        generateWorks(works);
+        } else {
+        return alert("Échec de la l'ajout du projet");
+        }
+    }
+    
+    

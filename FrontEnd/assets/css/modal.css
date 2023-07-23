@@ -1,6 +1,6 @@
 /* Modale */
 .modal {
-	display: none;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	position: fixed;
@@ -35,13 +35,13 @@ h3 {
 
 /* Définition de la "Modale", "vu et suppression de projet" */
 
-.close-modal-button-container {
+.close-modal-btn-container {
 	width: 100%;
 	text-align: end;
 }
 
 /* "button" pour fermer la modale */
-.close-modal-button-container .close-modal-button {
+.close-modal-btn-container .close-modal-btn {
     border: none;
     background: none;
     margin: 20px;
@@ -57,7 +57,7 @@ h3 {
 	height: auto;
 }
 
-.modal-gallery-grid-container {
+.modal-gallery {
     width: 420px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -67,19 +67,19 @@ h3 {
 }
 
 /* Taille des images */
-.modal-gallery-grid-container img {
+.modal-gallery img {
 	width: 76.86px;
 	height: 102.57px;
     object-fit: cover;
 }
 
-.modal-gallery-grid-container figure {
+.modal-gallery figure {
 	text-align: left;
 	position: relative;
 }
 
 /* Icone déplacement */
-.modal-gallery-grid-container figure:hover .btn-Icon-Move {
+.modal-gallery figure:hover .btn-Icon-Move {
     display: block;
 }
 
@@ -124,7 +124,7 @@ h3 {
 }
 
 /* "button" : "éditer" */
-.edit-button-modale {
+.edit-btn-modale {
 	padding: 0;
     border: none;
     background: none;
@@ -144,7 +144,7 @@ h3 {
 }
 
 /* btn : "Ajouter une photo" */
-.add-photo-button {
+.add-photo-btn {
 	border: none;
     color: #fff;
     text-align: center;
@@ -163,7 +163,7 @@ h3 {
 }
 
 /* btn : "Supprimer la galerie" */
-.delete-gallery-button {
+.delete-gallery-btn {
 	color: #d65353;
     background: none;
     text-align: center;
@@ -219,13 +219,13 @@ form hr {
 }
 
 /* btn "retour" et "fermer" */
-.return-and-close-modal-button-container {
+.return-and-close-modal-btn-container {
    display: flex;
    width: 100%;
    justify-content:space-between;
 }
 
-.return-and-close-modal-button-container .close-modal-button {
+.return-and-close-modal-btn-container .close-modal-btn {
     border: none;
     background: none;
     padding-top: 20px; 
@@ -235,7 +235,7 @@ form hr {
     color: black;
 }
 
-.return-and-close-modal-button-container .return-modal-button {	
+.return-and-close-modal-btn-container .return-modal-btn {	
     border: none;
     background: none;
     color: black;
@@ -246,7 +246,7 @@ form hr {
 }
 
 /*Contient toute la partie "+ Ajouter photo" */
-.project-photo-file-add-container {
+.photo-add-container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -260,7 +260,7 @@ form hr {
 }
 
 /* "preview" de l'image */
-.project-photo-file-add-container img {
+.photo-add-container img {
 	height: 169px;
     width: 129px;
     object-fit: cover;
@@ -269,12 +269,12 @@ form hr {
 }
 
 /* Icone "paysage" */
-.project-photo-file-add-icone {
+.photo-add-icone {
     font-size: 58px;
     color: #B9C5CC;
 }
 
-.project-photo-file-add-button {
+.photo-add-btn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -290,11 +290,11 @@ form hr {
     cursor: pointer;
 }
 
-#project-photo-file-add-input {
+#photo-add-input {
 	display: none;
 }
 
-.project-photo-file-add-description {
+.photo-add-description {
 	color: #444;
     text-align: center;
     font-family: Work Sans;
@@ -320,7 +320,7 @@ form hr {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-  .modal-content-form label:not(.project-photo-file-add-button) {
+  .modal-content-form label:not(.photo-add-btn) {
     margin: 30px 0 10px 0;
 }
 
