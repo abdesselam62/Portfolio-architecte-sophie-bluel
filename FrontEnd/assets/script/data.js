@@ -2,7 +2,6 @@
 const responseWorks = await fetch("http://localhost:5678/api/works");
 const works = await responseWorks.json();
 export {works};
-console.log(responseWorks);
 
 
 // Récupération des données "categories" à partir d'une API dans le swagger

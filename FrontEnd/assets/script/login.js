@@ -30,11 +30,11 @@ formInfos.addEventListener("submit", async function (event) {
     },
   );
 
-  // Récupération de la réponse et traduction"
+  // Extraction des données Json de la réponse HTTP, stokée dans "authResponse"
   const authResponse = await authInfos.json();
-  // Stockage du token du User identifié et de l'état de l'authentification
+  // récupération du jeton d'auth(token)
   const authToken = authResponse.token;
-  // Vérification de la réponse HTTP en accédant à la propriété "ok" de l'objet "Response"
+  // Vérification du statut de la réponse HTTP en accédant à la propriété "ok" de l'objet "Response"
   const authState = authInfos.ok;
 
   // Si connecté alors

@@ -175,7 +175,7 @@ async function deleteWork(workId) {
 const photoAddInput = document.querySelector("#photo-add-input");
 
 photoAddInput.addEventListener("change", function () {
-    // Si la taille du fichier est <= à 4 Mo
+    // Si la taille du fichier doit être <= à 4 Mo
     if (photoAddInput.files[0].size <= 4 * 1024 * 1024) {
         // Réinitialisation de la zone photo-add-container" du DOM
         const photoAddContainer = document.querySelector(".photo-add-container");

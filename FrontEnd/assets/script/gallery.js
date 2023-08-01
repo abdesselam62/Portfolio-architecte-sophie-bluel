@@ -9,7 +9,7 @@ export { generateWorks };
 
         //Affichage des projets sur la page
 
-function generateWorks(works){
+async function generateWorks(works){
    // Parcours des données "works" pour les ajouter au HTML (Gallerie de travaux).
   for(let i=0; i < works.length; i++){
     
@@ -60,8 +60,8 @@ for(let i=0; i < categories.length ; i++){
   filtersWorks.appendChild(btnFiltres);        
 
   btnFiltres.addEventListener("click", function() {            
-    const filteredWorks = works.filter(function(work){
-    return work.category.name === categories[i].name;
+    const filteredWorks = works.filter(function(projet){
+    return projet.category.name === categories[i].name;
     });
     document.querySelector(".gallery").innerHTML = "";
     generateWorks(filteredWorks);
