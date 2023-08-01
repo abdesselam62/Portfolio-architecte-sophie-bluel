@@ -324,6 +324,7 @@ form hr {
     margin: 30px 0 10px 0;
 }
 
+/* btn "Valider" */
 .valid-form {
 	margin: auto;
     border-radius: 60px;
@@ -342,7 +343,9 @@ form hr {
     cursor: pointer;
 }
 
-.valid-form:hover {
-	background-color: #1D6154;
-	color: #FFFEF8;
+/* Affiche ce style si les champs sont remplis */
+.valid-form.valid {
+    background: #1d6154;
+    color: white;
+    cursor: pointer;
 }

@@ -14,7 +14,7 @@ export function editMode() {
     function noFilter(state) {
     const filtersWorks = document.querySelector(".filter");
     filtersWorks.style.display = state;
-  }
+  };
     // Masque les filtres
     noFilter("none");
     // Ancre "login" qui passe en "none"
@@ -27,8 +27,8 @@ export function editMode() {
     // Masque "editMod"
     editModeActivation("none");
     console.log("Vous êtes déconnecté"); // Message dans la console pour vérifier que vous êtes dèconnecté
-  }
-}
+  };
+};
   // Fonction, activation du mode édition "editMod"
   function editModeActivation(state) {
   // Récupération de tout les class "edit-mode"
@@ -37,8 +37,8 @@ export function editMode() {
   for (let i = 0; i < editMod.length; i++) {
     //   Pour chaque "editMod"
     editMod[i].style.display = state;
-  }
-}
+  };
+};
   // Récupération de l'ancre "logout"
   const logoutButton = document.querySelector("#logout");
   // Au click du bouton "Logout"
