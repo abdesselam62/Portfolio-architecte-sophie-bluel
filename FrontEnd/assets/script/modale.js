@@ -45,7 +45,7 @@ export function modale() {
             modal.removeAttribute('aria-modal')
         };
     });
-
+};
 
     // Bouton pour ouvrir la 2éme fenêtre modale
 
@@ -73,7 +73,7 @@ export function modale() {
         const modalForm = document.querySelector(".modal-content-form");
         modalForm.style.display = "none";
     });
-};
+
 
  
 // Fonction pour générer la "gallery" de la modale
@@ -282,9 +282,9 @@ photoAddInput.addEventListener("change", function () {
         // Les galleries se mettent à jour avec les nouvelles valeurs
         generateWorksModale(works);
         generateWorks(works);
-        } else {
+            } else {
         return alert("Échec de l'ajout du projet");
+            };
         };
-    };
     
     
